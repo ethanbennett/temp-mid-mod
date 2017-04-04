@@ -1,9 +1,14 @@
 module ErrorHelper
   def valid_url
+    URI.parse(link_params["url"]).is_a? URI::HTTP
   end
-  
+
   def valid_email
     user_params["email"].include? "@"
+  end
+
+  def blank_field
+    link_params["url"] == "" || link_params["title"] == ""
   end
 
   def password_mismatch
@@ -14,7 +19,12 @@ module ErrorHelper
     user_params["password"] != ""
   end
 
-  def email_taken
+  def blank_field_message
+    flash[:blank_field] = "Please include a URL and a title"
+    redirect_to root_path
+  end
+
+  def email_taken_message
     User.find_by_email(user_params["email"]) != nil
   end
 
@@ -26,6 +36,11 @@ module ErrorHelper
   def password_mismatch_message
     flash[:password_mismatch] = "Please make sure your password confirmation matches your password"
     render 'new'
+  end
+
+  def invalid_url_message
+    flash[:bad_url] = "Please enter a valid URL (it should begin with HTTP or HTTPS)"
+    redirect_to root_path
   end
 
   def invalid_password_message

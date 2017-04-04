@@ -11,7 +11,14 @@ class LinksController < ApplicationController
   end
 
   def create
-    @link = @user.links.create(link_params)
+    if blank_field
+      blank_field_message
+    elsif !valid_url
+      invalid_url_message
+    else
+      @link = @user.links.create(link_params)
+      redirect_to root_path
+    end
   end
 
 private

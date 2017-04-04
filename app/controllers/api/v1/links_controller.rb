@@ -11,7 +11,7 @@ class Api::V1::LinksController < ApplicationController
 
   def create
     @link = current_user.links.create(link_params)
-    binding.pry
+    # binding.pry
   end
 
   private
