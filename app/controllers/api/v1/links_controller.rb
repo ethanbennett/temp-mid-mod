@@ -9,6 +9,11 @@ class Api::V1::LinksController < ApplicationController
     end
   end
 
+  def create
+    @link = current_user.links.create(link_params)
+    binding.pry
+  end
+
   private
 
   def link_params

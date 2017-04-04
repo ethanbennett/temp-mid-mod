@@ -11,9 +11,7 @@ class LinksController < ApplicationController
   end
 
   def create
-    @link = @user.links.new(link_params)
-    if @link.save
-
+    @link = @user.links.create(link_params)
   end
 
 private
