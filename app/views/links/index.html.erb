@@ -1,16 +1,6 @@
 <h3>Add a link</h3>
 
-<%= form_for @user.links.new do |f| %>
-
-  <%= f.label :url %>
-  <%= f.text_field :url %>
-
-  <%= f.label :title %>
-  <%= f.text_field :title %>
-  
-  <%= f.submit "Submit" %>
-
-<% end %>
+<%= render partial: "form" %>
 
 <p>---------------------------------------------------------------------------------</p>
 
@@ -18,13 +8,11 @@
   <div class="link-list">
     <% if link.read %>
       <div class="read">
-        <strong><%= link.title %></strong></br>
-        <%= link.url %></br></br>
+        <%= render partial: "link", :locals => {link: link} %>
       </div>
     <% else %>
       <div class="unread">
-        <strong><%= link.title %></strong></br>
-        <%= link.url %></br></br>
+        <%= render partial: "link", :locals => {link: link} %>
       </div>
     </div>
   <% end %>
