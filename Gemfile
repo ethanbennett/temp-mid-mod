@@ -15,6 +15,7 @@ gem 'responders'
 gem 'awesome_print'
 gem 'sprockets-es6'
 gem 'bcrypt', '~> 3.1.7'
+gem 'bootstrap-sass', '~> 3.3.6'
 
 # gem 'unicorn'
 
