@@ -1,6 +1,6 @@
 <h3>Create an Account:</h3>
 
-<%= form_for :user, users_path do |f| %>
+<%= form_for @user do |f| %>
 
   Email: <%= f.text_field :email %>
   Password: <%= f.password_field :password %>
