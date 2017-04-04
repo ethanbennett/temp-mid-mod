@@ -16,8 +16,7 @@ class LinksController < ApplicationController
     elsif !valid_url
       invalid_url_message
     else
-      @link = @user.links.create(link_params)
-      redirect_to root_path
+      successfully_created_link
     end
   end
 

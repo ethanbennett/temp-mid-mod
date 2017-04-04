@@ -24,7 +24,7 @@ module ErrorHelper
     redirect_to root_path
   end
 
-  def email_taken_message
+  def email_taken
     User.find_by_email(user_params["email"]) != nil
   end
 
@@ -57,5 +57,11 @@ module ErrorHelper
     @user.save
     session[:user_id] = @user.id
     redirect_to root_path, notice: "Welcome to the best app you'll ever belong to"
+  end
+
+  def successfully_created_link
+    @link = @user.links.create(link_params)
+    flash[:success] = "You added a link!!!!!!!!!!!!!!!!!!!!!!!!!!"
+    redirect_to root_path
   end
 end
