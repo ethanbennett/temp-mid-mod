@@ -13,6 +13,8 @@ class UsersController < ApplicationController
       password_mismatch_message
     elsif !valid_password
       invalid_password_message
+    elsif email_taken
+      email_taken_message
     else
       successfully_created_account
     end

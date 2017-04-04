@@ -1,0 +1,13 @@
+<h3>Add a link</h3>
+
+<%= form_for @user.links.new do |f| %>
+
+  <%= f.label :url %>
+  <%= f.text_field :url %>
+
+  <%= f.label :title %>
+  <%= text_field_tag :title %>
+  
+  <%= f.submit "Submit" %>
+
+<% end %>

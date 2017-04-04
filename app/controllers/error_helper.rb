@@ -1,4 +1,7 @@
 module ErrorHelper
+  def valid_url
+  end
+  
   def valid_email
     user_params["email"].include? "@"
   end
@@ -9,6 +12,10 @@ module ErrorHelper
 
   def valid_password
     user_params["password"] != ""
+  end
+
+  def email_taken
+    User.find_by_email(user_params["email"]) != nil
   end
 
   def invalid_email_message
@@ -24,6 +31,11 @@ module ErrorHelper
   def invalid_password_message
     flash[:invalid_password] = "Please enter a valid password"
     render 'new'    
+  end
+  
+  def email_taken_message
+    session[:double_email] = "You already have an account. Or your identity has been burgled"
+    render 'new'
   end
 
   def successfully_created_account
