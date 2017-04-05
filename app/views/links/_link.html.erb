@@ -1,5 +1,5 @@
 <strong><%= link.title %></strong></br>
-<%= link_to "#{link.url}", link.url %></br>
+  <%= link_to "#{link.url}", link.url %></br>
 <% if link.id %>
-  <%= link_to "Edit", edit_link_path(link.id) %>
+    <%= link_to "Edit", edit_link_path(link.id) %>
 <% end %></br></br>

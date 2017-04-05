@@ -20,7 +20,7 @@ module ErrorHelper
   end
 
   def blank_field_message
-    flash[:blank_field] = "Please include a URL and a title"
+    flash[:danger] = "Please include a URL and a title"
     redirect_to root_path
   end
 

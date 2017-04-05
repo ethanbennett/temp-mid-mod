@@ -15,3 +15,15 @@
  */
 @import "bootstrap";
 @import "bootstrap-sprockets";
+
+.list-group-item {
+  margin-right: 15px;
+}
+
+#read {
+  background-color: #aaaaaa;
+}
+
+#unread {
+  background-color: #dcd0c0;
+}
