@@ -64,4 +64,10 @@ module ErrorHelper
     flash[:success] = "You added a link!!!!!!!!!!!!!!!!!!!!!!!!!!"
     redirect_to root_path
   end
+
+  def successfully_updated_link
+    @link.update(link_params)
+    flash[:success] = "You updated a link!!!!!!!!!!!!!!!!!!!!!!!!!!"
+    redirect_to root_path
+  end
 end

@@ -10,6 +10,21 @@ class LinksController < ApplicationController
     end
   end
 
+  def edit
+    @link = @user.links.find(params["id"])
+  end
+
+  def update
+    @link = @user.links.find(params["id"])
+    if blank_field
+      blank_field_message
+    elsif !valid_url
+      invalid_url_message
+    else
+      successfully_updated_link
+    end
+  end
+
   def create
     if blank_field
       blank_field_message
