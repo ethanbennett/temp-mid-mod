@@ -1,14 +1,12 @@
 $( document ).ready(function(){
   $("body").on("click", ".mark-read", markRead)
-  $("body").on("click", ".mark-unread", markUnread)
 })
 
 function markRead(e) {
   e.preventDefault();
   var linkId = $(this).parents('#mark-button').data('id');
   $(this).parent().toggleClass('read-false').toggleClass('read-true');
-  // debugger;
-
+  $(this).parent().find(".mark-read").text("Mark Unread").removeClass('.mark-read').addClass('.mark-unread');
 
   $.ajax({
     type: "PATCH",
@@ -24,5 +22,5 @@ function updateLinkStatus(link) {
 }
 
 function displayFailure(failureData){
-  console.log("FAILED attempt to update Link: " + failureData.responseText);
+  console.log("Failed attempt to update link: " + failureData.responseText);
 }
