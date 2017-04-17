@@ -1,28 +1,27 @@
 $( document ).ready(function(){
-  $("body").on("click", ".mark-read", markRead)
+  $("body").on("click", ".mark-unread", markUnread)
 })
 
-function markRead(e) {
+function markUnread(e) {
   e.preventDefault();
   var linkId = $(this).parents('#mark-button').data('id');
-  changeReadButton(this);
+  changeUnreadButton(this);
   changeText(this);
   
   $.ajax({
     type: "PATCH",
     url: "/api/v1/links/" + linkId,
-    data: { read: true },
+    data: { read: false },
   }).then(console.log("Nice!"))
     .fail(displayFailure);
 }
 
 function changeText(button) {
-  $(button).parent().toggleClass('read-false').toggleClass('read-true');
+  $(button).parent().toggleClass('read-true').toggleClass('read-false');
 }
 
-function changeReadButton(button) {
-  $(button).text("Mark Unread").removeClass('mark-read').addClass('mark-unread')
-  // debugger;
+function changeUnreadButton(button) {
+  $(button).text("Mark Read").removeClass('mark-unread').addClass('mark-read');
 }
 
 function displayFailure(failureData){
