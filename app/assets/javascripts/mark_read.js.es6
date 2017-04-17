@@ -5,15 +5,23 @@ $( document ).ready(function(){
 function markRead(e) {
   e.preventDefault();
   var linkId = $(this).parents('#mark-button').data('id');
-  $(this).parent().toggleClass('read-false').toggleClass('read-true');
-  $(this).parent().find(".mark-read").text("Mark Unread").removeClass('.mark-read').addClass('.mark-unread');
-
+  changeText(this);
+  changeButton(this);
+  
   $.ajax({
     type: "PATCH",
     url: "/api/v1/links/" + linkId,
     data: { read: true },
   }).then(updateLinkStatus)
     .fail(displayFailure);
+}
+
+function changeText(button) {
+  $(button).parent().toggleClass('read-false').toggleClass('read-true');
+}
+
+function changeButton(button) {
+  $(button).parent().find(".mark-read").text("Mark Unread").removeClass('.mark-read').addClass('.mark-unread');
 }
 
 function updateLinkStatus(link) {
