@@ -1,5 +1,12 @@
 <strong><%= link.title %></strong></br>
   <%= link_to "#{link.url}", link.url %></br>
 <% if link.id %>
-    <%= link_to "Edit", edit_link_path(link.id) %>
-<% end %></br></br>
+  <%= link_to "Edit", edit_link_path(link.id) %>
+<% end %></br>
+<% if link.read %>
+  <button class="mark-unread">Mark Unread</button>
+<% else %>
+  <button class="mark-read">Mark Read</button>
+<% end %>
+
+</br></br>
