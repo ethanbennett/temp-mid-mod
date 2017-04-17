@@ -1,25 +1,27 @@
-// $( document ).ready(function(){
-//   $("body").on("click", ".mark-as-read", markAsRead)
-// })
+$( document ).ready(function(){
+  $("body").on("click", ".mark-read", markRead)
+  $("body").on("click", ".mark-unread", markUnread)
+})
 
-// function markAsRead(e) {
-//   e.preventDefault();
+function markRead(e) {
+  e.preventDefault();
 
-//   var $link = $(this).parents('.link');
-//   var linkId = $link.data('link-id');
+  var $link = $(this).parents('.link');
+  var linkId = $link.data('data');
+  console.log(linkId);
 
-//   $.ajax({
-//     type: "PATCH",
-//     url: "/api/v1/links/" + linkId,
-//     data: { read: true },
-//   }).then(updateLinkStatus)
-//     .fail(displayFailure);
-// }
+  $.ajax({
+    type: "PATCH",
+    url: "/api/v1/links/" + linkId,
+    data: { read: true },
+  }).then(updateLinkStatus)
+    .fail(displayFailure);
+}
 
-// function updateLinkStatus(link) {
-//   $(`.link[data-link-id=${link.id}]`).find(".read-status").text(link.read);
-// }
+function updateLinkStatus(link) {
+  $(`.link[data-link-id=${link.id}]`).find(".read-status").text(link.read);
+}
 
-// function displayFailure(failureData){
-//   console.log("FAILED attempt to update Link: " + failureData.responseText);
-// }
+function displayFailure(failureData){
+  console.log("FAILED attempt to update Link: " + failureData.responseText);
+}
