@@ -1,9 +1,8 @@
 <div id="mark-button" data-id=<%= link.id %> >
 <strong><%= link.title %></strong></br>
   <%= link_to "#{link.url}", link.url %></br>
-<% if link.id %>
   <%= link_to "Edit", edit_link_path(link.id) %>
-<% end %></br>
+</br>
 <% if link.read %>
   <button class="mark-unread">Mark Unread</button>
 <% else %>

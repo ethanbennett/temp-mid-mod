@@ -2,7 +2,7 @@ class Api::V1::LinksController < ApplicationController
 
   def update
     @link = Link.find(params[:id])
-    binding.pry
+    # binding.pry
     if @link.update_attributes(link_params)
       render json: @link
     else

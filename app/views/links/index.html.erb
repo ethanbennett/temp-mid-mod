@@ -4,20 +4,8 @@
 <h1 class="page-header"> </h1>
 
 <% @user.links.each do |link| %>
-<div class="container">
-  <ul class="list-group row" id="links">
-      <% if link.read %>
-        <% if link.title %>
-          <li class="list-group-item col-md-3" id="read" >
-            <%= render partial: "link", :locals => {link: link} %>
-          </li>
-        <% end %>
-      <% else %>
-      <% if link.title %>
-        <li class="list-group-item col-md-3" id="unread">
-          <%= render partial: "link", :locals => {link: link} %>
-        </li>
-      <% end %>
+    <% if link.title %>
+      <%= render partial: "link", :locals => {link: link} %>
     <% end %>
   <% end %>
   </ul>
