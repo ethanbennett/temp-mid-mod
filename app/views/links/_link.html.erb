@@ -1,4 +1,4 @@
-<div id="mark-button" data-id=<%= link.id %> >
+<div class="read-<%= link.read %>" id="mark-button" data-id=<%= link.id %> >
 <strong><%= link.title %></strong></br>
   <%= link_to "#{link.url}", link.url %></br>
   <%= link_to "Edit", edit_link_path(link.id) %>

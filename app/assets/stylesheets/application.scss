@@ -21,10 +21,10 @@
   margin-top: 35px;
 }
 
-#read {
-  background-color: #aaaaaa;
+.read-true {
+  color: red;
 }
 
-#unread {
-  background-color: #dcd0c0;
+.read-false {
+  color: black;
 }
