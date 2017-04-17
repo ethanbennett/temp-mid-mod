@@ -22,7 +22,6 @@ function changeText(button) {
 
 function changeReadButton(button) {
   $(button).text("Mark Unread").removeClass('mark-read').addClass('mark-unread')
-  // debugger;
 }
 
 function displayFailure(failureData){
