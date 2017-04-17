@@ -5,9 +5,7 @@ $( document ).ready(function(){
 
 function markRead(e) {
   e.preventDefault();
-
-  var $link = $(this).parents('.link');
-  var linkId = $link.data('data');
+  var linkId = $('#mark-button').data('id');
   console.log(linkId);
 
   $.ajax({
