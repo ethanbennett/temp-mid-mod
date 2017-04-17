@@ -5,10 +5,7 @@ $( document ).ready(function(){
 
 function markRead(e) {
   e.preventDefault();
-  var linkId = $('#mark-button').data('data-id');
-  var test = $(this).parents('#mark-button').data('data-id');
-  // console.log(linkId);
-  debugger;
+  var linkId = $(this).parents('#mark-button').data('id');
 
   $.ajax({
     type: "PATCH",
