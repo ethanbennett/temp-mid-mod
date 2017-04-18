@@ -1,6 +1,5 @@
 $( document ).ready(function(){
   $("#create-link").on("click", createLink)
-});
 
 function createLink(e) {
   e.preventDefault();
@@ -40,5 +39,6 @@ function addLink(link) {
     url + "</a></br><a href='/links/" +
     linkId +"/edit'>Edit</a></br><button class='mark-read'>Mark Read</button></br></br>"
 }
+});
 
 
