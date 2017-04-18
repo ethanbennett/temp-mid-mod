@@ -10,8 +10,8 @@ RSpec.describe "When a user tries to edit a link" do
 
     click_on "Submit"
 
-    fill_in "link_url" , :with => "https://google.com"
-    fill_in "link_title", :with => "Google"
+    fill_in "url" , :with => "https://google.com"
+    fill_in "title", :with => "Google"
 
     click_on "Submit"
   end
@@ -19,8 +19,8 @@ RSpec.describe "When a user tries to edit a link" do
   it "they can edit with properly formatted data" do
     click_on "Edit"
 
-    fill_in "link_url" , :with => "https://g.com"
-    fill_in "link_title", :with => "Google"
+    fill_in "url" , :with => "https://g.com"
+    fill_in "title", :with => "Google"
 
     click_on "Submit"
 
@@ -30,8 +30,8 @@ RSpec.describe "When a user tries to edit a link" do
   it "they cannot update a link if the 'title' field is blank" do
     click_on "Edit"
 
-    fill_in "link_url", :with => "https://google.com"
-    fill_in "link_title", :with => ""
+    fill_in "url", :with => "https://google.com"
+    fill_in "title", :with => ""
 
     click_on "Submit"
 
@@ -41,8 +41,8 @@ RSpec.describe "When a user tries to edit a link" do
   it "they cannot update a link if the 'url' field is blank" do
     click_on "Edit"
     
-    fill_in "link_url", :with => ""
-    fill_in "link_title", :with => "a"
+    fill_in "url", :with => ""
+    fill_in "title", :with => "a"
 
     click_on "Submit"
 
@@ -52,8 +52,8 @@ RSpec.describe "When a user tries to edit a link" do
   it "they cannot update a link with an improper URL" do
     click_on "Edit"
 
-    fill_in "link_url", :with => "ethan.b"
-    fill_in "link_title", :with => "a"
+    fill_in "url", :with => "ethan.b"
+    fill_in "title", :with => "a"
 
     click_on "Submit"
 

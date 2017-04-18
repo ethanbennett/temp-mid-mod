@@ -12,8 +12,8 @@ RSpec.describe "When a user tries to submit a new link" do
   end
 
   it "they can add properly formatted data" do
-    fill_in "link_url" , :with => "https://google.com"
-    fill_in "link_title", :with => "Google"
+    fill_in "url" , :with => "https://google.com"
+    fill_in "title", :with => "Google"
 
     click_on "Submit"
 
@@ -21,22 +21,22 @@ RSpec.describe "When a user tries to submit a new link" do
   end
 
   it "they cannot add a link if the 'title' field is blank" do
-    fill_in "link_url", :with => "https://google.com"
+    fill_in "url", :with => "https://google.com"
     click_on "Submit"
 
     expect(page).to have_content "Please include a URL and a title"
   end
 
   it "they cannot add a link if the 'url' field is blank" do
-    fill_in "link_title", :with => "a"
+    fill_in "title", :with => "a"
     click_on "Submit"
 
     expect(page).to have_content "Please include a URL and a title"
   end
 
   it "they cannot add a link with an improper URL" do
-    fill_in "link_url", :with => "ethan.b"
-    fill_in "link_title", :with => "a"
+    fill_in "url", :with => "ethan.b"
+    fill_in "title", :with => "a"
     click_on "Submit"
 
     expect(page).to have_content "Please enter a valid URL (it should begin with HTTP or HTTPS)"

@@ -7,8 +7,8 @@ RSpec.describe "Read/Unread button functionality", :js => true do
     fill_in "user[password]", :with => "a"
     fill_in "user[password_confirmation]", :with => "a"
     click_on "Submit"
-    fill_in "link_url" , :with => "https://google.com"
-    fill_in "link_title", :with => "Google"
+    fill_in "url" , :with => "https://google.com"
+    fill_in "title", :with => "Google"
     click_on "Submit"
   end
 
