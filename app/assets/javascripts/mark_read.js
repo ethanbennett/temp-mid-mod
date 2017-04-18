@@ -6,13 +6,15 @@ $( document ).ready(function(){
 function markRead(e) {
   e.preventDefault();
   var linkId = $(this).parents('#mark-button').data('id');
+  var currentCount = $(this).parents('#mark-button').data('count');
+  var newCount = currentCount + 1
   changeReadButton(this);
   changeText(this);
   
   $.ajax({
     type: "PATCH",
     url: "/api/v1/links/" + linkId,
-    data: { read: true },
+    data: { read: true, count: newCount },
   }).then(console.log("Nice!"))
     .fail(displayFailure);
 }

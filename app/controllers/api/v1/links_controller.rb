@@ -1,8 +1,14 @@
 class Api::V1::LinksController < ApplicationController
 
+  def index
+    @links = Link.top_ten
+    render json: @links
+  end
+
   def update
     @link = Link.find(params[:id])
-    if @link.update_attributes(link_params)
+      binding.pry
+    if @link.update_attributes(read: params["read"], count: params["count"])
       render json: @link
     else
       render json: @link.errors.full_messages, status: 500
