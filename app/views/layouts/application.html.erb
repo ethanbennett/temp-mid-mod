@@ -11,9 +11,7 @@
 <body>
 
   <% flash.each do |type, message| %>
-      <div class="flash-message">
-        <%= message %>
-      </div>
+    <%= message %>
   <% end %>
 
   <% if current_user %>

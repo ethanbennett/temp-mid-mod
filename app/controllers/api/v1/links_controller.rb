@@ -2,7 +2,6 @@ class Api::V1::LinksController < ApplicationController
 
   def update
     @link = Link.find(params[:id])
-    # binding.pry
     if @link.update_attributes(link_params)
       render json: @link
     else
@@ -11,13 +10,6 @@ class Api::V1::LinksController < ApplicationController
   end
 
   def create
-    @link = current_user.links.create(link_params)
-    # binding.pry
-  end
-
-  private
-
-  def link_params
-    params.permit(:read)
+    @link = current_user.links.create(url: params["link"]["url"], title: params["link"]["title"])
   end
 end

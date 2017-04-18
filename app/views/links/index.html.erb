@@ -1,7 +1,15 @@
 <h3>Add a link</h3>
 
 <%= render partial: "form" %>
+
+<h4>Filter your links:</h4>
+  <label>Text:</label>
+  <input type='text' id='text_filter'></input>
+
+  <button id='only_unread'>Show Unread</button>
+  <button id='only_read'>Show Read</button>
 <h1 class="page-header"> </h1>
+
 
 <ul id="links-list" >
   <% @user.links.each do |link| %>
