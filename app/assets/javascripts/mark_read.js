@@ -12,7 +12,6 @@ function markRead(e) {
     url: "/api/v1/links/" + linkId,
     data: { read: true },
   }).then(
-    console.log(this),
   changeReadButton(this),
   changeText(this)
   ).fail(displayFailure);
@@ -26,11 +25,11 @@ function markReadFromLink(e) {
     type: "PATCH",
     url: "/api/v1/links/" + linkId,
     data: { read: true },
-  }).then(
-    changeText(this),
+  }).done( () => {
     changeReadButtonFromLink(this),
+    changeText(this),
     window.open(this)
-  ).fail(displayFailure);
+  }).fail(displayFailure);
 }
 
 function changeText(button) {
