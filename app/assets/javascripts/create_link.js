@@ -27,8 +27,9 @@ function addLink(link) {
     type: "POST",
     url: "/links",
     data: link
-  }).then(
-    $("#links-list").prepend(linkHtml)
+  }).done( () =>
+    $("#links-list").prepend(linkHtml),
+    renderSuccess()
   )}
 
 function formatLinkHtml() {
@@ -41,5 +42,16 @@ function formatLinkHtml() {
   url + "'>" +
   url + "</a></br><a href='/links/" +
   linkId +"/edit'>Edit</a></br><button class='mark-read'>Mark Read</button></br></br>"
+}
+
+function renderSuccess() {
+  var success = "<div id='flash_message'><p>Success!</p></div>"
+  
+  $("body").prepend(
+  $(success).
+    hide().fadeIn(1000, function(){
+      $(this).fadeOut(1000);
+    })
+  );
 }
 
