@@ -14,4 +14,8 @@ class Link < ActiveRecord::Base
   def number_one?
     Link.top_ten[0] == self
   end
+
+  def self.all_valid?
+    Link.where(count: nil).update(count: 0)
+  end
 end

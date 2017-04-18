@@ -24,7 +24,6 @@ function addLink(link) {
     data: link
   }).done( (response) => {
     $(".link").prepend(response)
-    // debugger;
   }).fail(error => console.log(error))
 }
 });
