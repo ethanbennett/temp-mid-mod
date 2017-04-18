@@ -5,7 +5,9 @@ $( document ).ready(function(){
 function createLink(e) {
   e.preventDefault();
   var link = formatLink();
-  addLink(link);
+  if (addLink(link)) {
+    addLink(link);
+  }
 }
 
 function formatLink () {
@@ -33,9 +35,12 @@ function addLink(link) {
 function formatLinkHtml() {
   var title = $("#title").val()
   var url = $("#url").val()
+  var linkId = $("#link-id").val()
+
   return "<div class='read-false'><strong>" +
   title + "</strong></br><a href='" +
   url + "'>" +
-  url + "</a></br><button class='mark-read'>Mark Read</button></br></br>"
+  url + "</a></br><a href='/links/" +
+  linkId +"/edit'>Edit</a></br><button class='mark-read'>Mark Read</button></br></br>"
 }
 

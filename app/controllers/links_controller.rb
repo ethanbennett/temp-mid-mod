@@ -7,6 +7,7 @@ class LinksController < ApplicationController
       redirect_to login_path
     else
       @link = @user.links.new
+      @new_link_id = Link.all.length + 1
     end
   end
 

@@ -6,7 +6,9 @@
   <%= f.label :title %>
   <%= f.text_field :title, id: "title" %>
 
+  <%= f.hidden_field :link_id, value: @new_link_id, id: "link-id" %>
   <%= f.hidden_field :user, value: current_user.id, id: "user" %>
+  
   <%= f.submit "Submit", id: "create-link" %>
 
 <% end %>
