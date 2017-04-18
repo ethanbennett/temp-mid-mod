@@ -3,10 +3,10 @@
 <%= render partial: "form" %>
 <h1 class="page-header"> </h1>
 
-<% @user.links.each do |link| %>
-    <% if link.title %>
-      <%= render partial: "link", :locals => {link: link} %>
+<ul id="links-list" >
+  <% @user.links.each do |link| %>
+      <% if link.title %>
+        <%= render partial: "link", :locals => {link: link} %>
+      <% end %>
     <% end %>
-  <% end %>
   </ul>
-</div>

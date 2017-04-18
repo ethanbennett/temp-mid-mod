@@ -6,7 +6,6 @@ function createLink(e) {
   e.preventDefault();
   var link = formatLink();
   addLink(link);
-  debugger;
 }
 
 function formatLink () {
@@ -20,10 +19,23 @@ function formatLink () {
 }
 
 function addLink(link) {
+  var linkHtml = formatLinkHtml()
+
   $.ajax({
     type: "POST",
     url: "/links",
     data: link
-  }).then(console.log("Nice!"))
+  }).then(
+    $("#links-list").prepend(linkHtml)
+    )
   }
+
+function formatLinkHtml() {
+  var title = $("#title").val()
+  var url = $("#url").val()
+  return "<div class='read-false'><strong>" +
+  title + "</strong></br><a href='" +
+  url + "'>" +
+  url + "</a></br><button class='mark-read'>Mark Read</button></br></br>"
+}
 
