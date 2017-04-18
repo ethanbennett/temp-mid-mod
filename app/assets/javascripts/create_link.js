@@ -24,7 +24,8 @@ function addLink(link) {
     url: "/api/v1/links",
     data: link
   }).done( (response) => {
-    $("#links-list").prepend(newHtml)
+    $(".link").prepend(response)
+    // debugger;
   }).fail(error => console.log(error))
 }
 

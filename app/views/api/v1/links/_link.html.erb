@@ -1,0 +1,18 @@
+<div class="link">
+<% if link.number_one? %>
+  Smokin Top Link!</br>
+<% elsif link.in_top_ten? %>
+  Smokin Hot Link!</br>
+<% end %>
+<div class="read-<%= link.read %>" id="mark-button" data-id=<%= link.id %> data-count=<%= link.count %> >
+<div id="link-title"><strong><%= link.title %></strong></div></br>
+  <div id="link-url"><%= link_to "#{link.url}", link.url, id: "link-clicker" %></div></br>
+  <%= link_to "Edit", edit_link_path(link.id) %>
+</br>
+<% if link.read %>
+  <button class="mark-unread" id="button-<%= link.id %>">Mark Unread</button>
+<% else %>
+  <button class="mark-read" id="button-<%= link.id %>">Mark Read</button>
+<% end %>
+</div>
+</br></br>
