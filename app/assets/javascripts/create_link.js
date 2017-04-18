@@ -4,11 +4,9 @@ $( document ).ready(function(){
 
 function createLink(e) {
   e.preventDefault();
-  formatLink();
+  var link = formatLink();
+  addLink(link);
   debugger;
-}
-
-function newFunction() {
 }
 
 function formatLink () {
@@ -20,4 +18,12 @@ function formatLink () {
     }
   }
 }
+
+function addLink(link) {
+  $.ajax({
+    type: "POST",
+    url: "/links",
+    data: link
+  }).then(console.log("Nice!"))
+  }
 
