@@ -1,12 +1,12 @@
 <div class="read-<%= link.read %>" id="mark-button" data-id=<%= link.id %> >
 <strong><%= link.title %></strong></br>
-  <%= link_to "#{link.url}", link.url %></br>
+  <%= link_to "#{link.url}", link.url, id: "link-clicker" %></br>
   <%= link_to "Edit", edit_link_path(link.id) %>
 </br>
 <% if link.read %>
-  <button class="mark-unread">Mark Unread</button>
+  <button class="mark-unread" id="button-<%= link.id %>">Mark Unread</button>
 <% else %>
-  <button class="mark-read">Mark Read</button>
+  <button class="mark-read" id="button-<%= link.id %>">Mark Read</button>
 <% end %>
 
 </br></br>
