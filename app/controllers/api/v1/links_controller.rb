@@ -7,7 +7,10 @@ class Api::V1::LinksController < ApplicationController
 
   def update
     @link = Link.find(params[:id])
-    if @link.update_attributes(read: params["read"], count: params["count"])
+    if @link.update_attributes(read: params["read"]) && @link.read
+      @link.update(count: @link.count += 1)
+      render json: @link
+    elsif @link.update_attributes(read: params["read"])
       render json: @link
     else
       render json: @link.errors.full_messages, status: 500
