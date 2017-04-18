@@ -29,8 +29,7 @@ function addLink(link) {
     data: link
   }).then(
     $("#links-list").prepend(linkHtml)
-    )
-  }
+  )}
 
 function formatLinkHtml() {
   var title = $("#title").val()
