@@ -6,4 +6,12 @@ class Link < ActiveRecord::Base
   def self.top_ten
     Link.all.sort_by(&:count).reverse[0...10]
   end
+
+  def in_top_ten?
+    Link.top_ten.include? self
+  end
+
+  def number_one?
+    Link.top_ten[0] == self
+  end
 end

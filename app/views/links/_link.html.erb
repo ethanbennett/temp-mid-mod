@@ -1,4 +1,9 @@
 <div class="link">
+<% if link.number_one? %>
+  Smokin Top Link!</br>
+<% elsif link.in_top_ten? %>
+  Smokin Hot Link!</br>
+<% end %>
 <div class="read-<%= link.read %>" id="mark-button" data-id=<%= link.id %> data-count=<%= link.count %> >
 <div id="link-title"><strong><%= link.title %></strong></div></br>
   <div id="link-url"><%= link_to "#{link.url}", link.url, id: "link-clicker" %></div></br>
