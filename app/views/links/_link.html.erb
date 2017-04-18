@@ -1,7 +1,7 @@
-<li class="link">
+<div class="link">
 <div class="read-<%= link.read %>" id="mark-button" data-id=<%= link.id %> >
-<strong><%= link.title %></strong></br>
-  <%= link_to "#{link.url}", link.url, id: "link-clicker" %></br>
+<div id="link-title"><strong><%= link.title %></strong></div></br>
+  <div id="link-url"><%= link_to "#{link.url}", link.url, id: "link-clicker" %></div></br>
   <%= link_to "Edit", edit_link_path(link.id) %>
 </br>
 <% if link.read %>
@@ -9,5 +9,5 @@
 <% else %>
   <button class="mark-read" id="button-<%= link.id %>">Mark Read</button>
 <% end %>
-</li>
+</div>
 </br></br>
