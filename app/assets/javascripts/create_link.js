@@ -5,9 +5,19 @@ $( document ).ready(function(){
 function createLink(e) {
   e.preventDefault();
   formatLink();
+  debugger;
+}
+
+function newFunction() {
 }
 
 function formatLink () {
-  debugger;
+  return {
+    link: {
+      user_id: $("#user").val(),
+      url: $("#url").val(),
+      title: $("#title").val()
+    }
+  }
 }
 

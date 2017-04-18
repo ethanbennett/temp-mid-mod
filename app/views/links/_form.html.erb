@@ -1,11 +1,12 @@
-<%= form_for @link do |f| %>
+<%= form_for @link, id: "link-form" do |f| %>
 
   <%= f.label :url %>
-  <%= f.text_field :url %>
+  <%= f.text_field :url, id: "url" %>
 
   <%= f.label :title %>
-  <%= f.text_field :title %>
-  
+  <%= f.text_field :title, id: "title" %>
+
+  <%= f.hidden_field :user, value: current_user.id, id: "user" %>
   <%= f.submit "Submit", id: "create-link" %>
 
 <% end %>
