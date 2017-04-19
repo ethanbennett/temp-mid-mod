@@ -10,12 +10,12 @@ function markRead(e) {
   $.ajax({
     type: "PATCH",
     url: "/api/v1/links/" + linkId,
-    data: { read: true },
-  }).then(
-  changeReadButton(this)
-  ).then(
-  changeText(this)
-  ).fail(displayFailure);
+    data: { read: true }
+  }).then(() => {
+    changeReadButton(this)
+  }).then(() => {
+    changeText(this)
+  }).fail(displayFailure);
 }
 
 function markReadFromLink(e) {
@@ -25,17 +25,17 @@ function markReadFromLink(e) {
   $.ajax({
     type: "PATCH",
     url: "/api/v1/links/" + linkId,
-    data: { read: true },
-  }).then(
-    changeReadButtonFromLink(this),
+    data: { read: true }
+  }).then(() => {
+    changeReadButtonFromLink(this)
+  }).then(() => {
     changeText(this)
-  ).then(window.open(this)
+  }).then(window.open(this)
   ).fail(displayFailure)
 }
 
 function changeText(button) {
-  debugger;
-  $(button).parent().removeClass("read-false").addClass("read-true")
+  $(button).parent().parent().removeClass("read-false").addClass("read-true")
 }
 
 function changeReadButtonFromLink(link) {
@@ -44,7 +44,6 @@ function changeReadButtonFromLink(link) {
 }
 
 function changeReadButton(button) {
-  debugger;
   $(button).text("Mark Unread").removeClass('mark-read').addClass('mark-unread')
 }
 

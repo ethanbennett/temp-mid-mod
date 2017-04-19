@@ -5,19 +5,20 @@ $( document ).ready(function(){
 function markUnread(e) {
   e.preventDefault();
   var linkId = $(this).parents('#mark-button').data('id');
-  changeUnreadButton(this);
-  changeText(this);
   
   $.ajax({
     type: "PATCH",
     url: "/api/v1/links/" + linkId,
     data: { read: false },
-  }).then(console.log("Nice!"))
-    .fail(displayFailure);
+  }).then(() => {
+    changeUnreadButton(this)
+  }).then(() => {
+    changeText(this);
+  }).fail(displayFailure);
 }
 
 function changeText(button) {
-  $(button).parent().toggleClass('read-true').toggleClass('read-false');
+  $(button).parent().parent().removeClass('read-true').addClass('read-false');
 }
 
 function changeUnreadButton(button) {

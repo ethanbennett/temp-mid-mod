@@ -10,8 +10,7 @@
 <div id="link-title"><strong><%= link.title %></strong></div>
 <div id="link-url"><%= link_to "#{link.url}", link.url, id: "link-clicker" %></div>
   
-  <button href="<%= edit_link_path(link.id)%>">Edit</button>
-
+<%= link_to "Edit", edit_link_path(link) %></br>
 <% if link.read %>
   <button class="mark-unread" id="button-<%= link.id %>">Mark Unread</button>
 <% else %>
