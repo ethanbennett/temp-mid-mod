@@ -23,7 +23,7 @@ function addLink(link) {
     url: "/api/v1/links",
     data: link
   }).done( (response) => {
-    $(".link").prepend(response)
+    $("#links-list").prepend(response)
   }).fail(error => console.log(error))
 }
 });

@@ -10,9 +10,9 @@
 
 <% Link.all_valid? %>
 <ul id="links-list" >
-  <% @user.links.each do |link| %>
+  <% @links.each do |link| %>
       <% if link.title %>
-        <%= render partial: "link", :locals => {link: link} %>
+        <%= render partial: "links/link", :locals => {link: link} %>
       <% end %>
     <% end %>
   </ul>

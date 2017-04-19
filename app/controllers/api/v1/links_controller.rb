@@ -20,7 +20,7 @@ class Api::V1::LinksController < ApplicationController
   def create
     @link = current_user.links.new(url: params["link"]["url"], title: params["link"]["title"], count: 0)
     if @link.save
-      render partial: "link", locals: {link: @link}
+      render partial: "links/link", locals: {link: @link}, layout: false
     else
       render json: @link.errors.full_messages, status: 500
     end

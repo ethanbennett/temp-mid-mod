@@ -44,7 +44,7 @@ function changeReadButtonFromLink(link) {
 }
 
 function changeReadButton(button) {
-  // debugger;
+  debugger;
   $(button).text("Mark Unread").removeClass('mark-read').addClass('mark-unread')
 }
 
