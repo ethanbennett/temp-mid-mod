@@ -12,7 +12,8 @@ function markRead(e) {
     url: "/api/v1/links/" + linkId,
     data: { read: true },
   }).then(
-  changeReadButton(this),
+  changeReadButton(this)
+  ).then(
   changeText(this)
   ).fail(displayFailure);
 }
@@ -33,7 +34,8 @@ function markReadFromLink(e) {
 }
 
 function changeText(button) {
-  $(button).parent().toggleClass('read-false').toggleClass('read-true');
+  debugger;
+  $(button).parent().removeClass("read-false").addClass("read-true")
 }
 
 function changeReadButtonFromLink(link) {
@@ -42,6 +44,7 @@ function changeReadButtonFromLink(link) {
 }
 
 function changeReadButton(button) {
+  // debugger;
   $(button).text("Mark Unread").removeClass('mark-read').addClass('mark-unread')
 }
 
