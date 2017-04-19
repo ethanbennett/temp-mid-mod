@@ -25,11 +25,11 @@ function markReadFromLink(e) {
     type: "PATCH",
     url: "/api/v1/links/" + linkId,
     data: { read: true },
-  }).done( () => {
+  }).then(
     changeReadButtonFromLink(this),
-    changeText(this),
-    window.open(this)
-  }).fail(displayFailure);
+    changeText(this)
+  ).then(window.open(this)
+  ).fail(displayFailure)
 }
 
 function changeText(button) {
@@ -38,7 +38,6 @@ function changeText(button) {
 
 function changeReadButtonFromLink(link) {
   var linkId = $(link).parents('#mark-button').data('id');
-  var linkButton = $(link).find("#button-" + linkId)
   $(link).find("#button-" + linkId).text("Mark Unread").removeClass('mark-read').addClass('mark-unread')
 }
 
