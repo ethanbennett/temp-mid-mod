@@ -4,13 +4,6 @@ $( document ).ready(function(){
 
 function filterUnread () {
   var $links = $(".link")
-  // $links.hide()
-
-  $links.each(function() {
-    var $className = $(this).children().attr("class")
-    console.log($className)
-    if ($className == "read-false") {
-      $(this).hide()
-    }
-  })
+  $links.hide()
+  $links.filter(".read-true").show()
 }

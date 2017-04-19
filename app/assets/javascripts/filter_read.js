@@ -4,17 +4,6 @@ $( document ).ready(function(){
 
 function filterRead () {
   var $links = $(".link")
-  // $links.hide()
-  $links.filter(".read-true").hide()
-  debugger;
-
-  // for (var i = 0; i < $links.length; i++) {
-  //   var $thisLink = $($links[i]).children().eq(1)
-  //   var $className = $thisLink.attr("class")
-  //   if ($className == "read-true") {
-  //     $thisLink.hide()
-  //   }
-  // }
-
-
+  $links.hide()
+  $links.filter(".read-false").show()
 }
