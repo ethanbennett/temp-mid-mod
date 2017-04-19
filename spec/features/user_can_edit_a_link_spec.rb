@@ -24,7 +24,7 @@ RSpec.describe "When a user tries to edit a link" do
 
     click_on "Submit"
 
-    expect(page).to have_content "You updated a link!!!!!!!!!!!!!!!!!!!!!!!!!!"
+    expect(page).to have_content "https://g.com"
   end
 
   it "they cannot update a link if the 'title' field is blank" do

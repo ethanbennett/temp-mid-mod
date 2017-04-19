@@ -4,6 +4,5 @@ $( document ).ready(function(){
 
 function filterRead () {
   var $links = $(".link")
-  $links.hide()
-  $links.filter(".read-false").show()
+  $links.filter(".read-true").hide()
 }

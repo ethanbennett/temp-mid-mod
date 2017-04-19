@@ -9,10 +9,12 @@
 <h1 class="page-header"> </h1>
 
 <% Link.all_valid? %>
-<ul id="links-list" >
+<div class="container">
+<ul class="list-group row" id="links-list" >
   <% @links.each do |link| %>
       <% if link.title %>
         <%= render partial: "links/link", :locals => {link: link} %>
       <% end %>
     <% end %>
   </ul>
+  </div>
